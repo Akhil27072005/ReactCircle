@@ -1,0 +1,45 @@
+/* Entire header bar */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #b3e5fc; /* light blue */
+  font-family: "Inter";
+}
+
+/* Left section: hamburger + logo + title */
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo click area */
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+/* Page title text */
+.title {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+/* Hamburger icon styling */
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 15px;
+  display: none; /* hidden by default (desktop) */
+}
+
+/* Show hamburger on smaller screens */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}

@@ -1,0 +1,62 @@
+/* sidebar_menu_item.css */
+
+.sidebar-menu-item {
+  color: #ccc;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 4px; /* Add light spacing between items */
+  font-family: "Inter";
+}
+
+.sidebar-menu-item:hover {
+  background-color: #353535;
+}
+
+.sidebar-menu-item .menu-label {
+  font-size: 1rem;
+  color: white;
+  line-height: 1.2; /* Keep things compact */
+}
+
+.sidebar-menu-item.active .menu-label {
+  color: #bde1fc; 
+  font-weight: bold;
+}
+
+.highlight-line {
+  border: none;
+  height: 2px;
+  background-color: #bde1fc;
+  margin: 2px 0; /* Reduced spacing around highlight line */
+}
+
+@media (max-width: 768px) {
+  .sidebar-menu-item {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 2px;
+  }
+
+  .sidebar-menu-item .menu-label {
+    font-size: 0.9rem;
+  }
+
+  .highlight-line {
+    height: 1.5px;
+    margin: 1px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-menu-item {
+    padding: 5px 8px;
+    font-size: 0.85rem;
+  }
+
+  .sidebar-menu-item .menu-label {
+    font-size: 0.85rem;
+  }
+}

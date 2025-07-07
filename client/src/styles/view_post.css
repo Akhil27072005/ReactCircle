@@ -1,0 +1,18 @@
+.dashboard-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.post-view-area {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}

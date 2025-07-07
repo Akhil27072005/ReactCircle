@@ -1,0 +1,75 @@
+/* Main calendar container */
+.react-calendar {
+  background-color: #353535; /* Black background */
+  color: #000000; /* White text */
+  border-radius: 10px;
+  font-family: "Poppins";
+  font-size: 15px;
+}
+
+/* Weekday headers (Sun, Mon, ...) */
+.react-calendar__month-view__weekdays {
+  color: #ccc;
+}
+
+/* Each day tile */
+.react-calendar__tile {
+  background: transparent;
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* Highlight today's date */
+.react-calendar__tile--now {
+  background: #444;
+  color: #fff;
+}
+
+/* Selected date */
+.react-calendar__tile--active {
+  background: #007bff;
+  color: #fff;
+}
+
+/* Hover effect */
+.react-calendar__tile:hover {
+  background-color: #222;
+  color: #148ef1;
+}
+
+/* Navigation bar (month/year selectors) */
+.react-calendar__navigation button {
+  background: transparent;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Make calendar responsive */
+.react-calendar {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Responsive font sizing */
+@media (max-width: 768px) {
+  .react-calendar {
+    font-size: 13px;
+  }
+
+  .react-calendar__tile {
+    padding: 6px 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .react-calendar {
+    font-size: 12px;
+  }
+
+  .react-calendar__tile {
+    padding: 4px 2px;
+  }
+}

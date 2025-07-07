@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.post-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  padding: 24px;
+  flex-grow: 1;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;     /* ✅ Add this */
+  z-index: 1;              /* ✅ Keep this low */
+  overflow: visible;       /* ✅ Important: don't clip the dropdown */
+
+}
+
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: rgb(255, 255, 255);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.post-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.post-card h5 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.post-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.card-body{
+  font-family: "Nunito";
+}
+
+
+@media (max-width: 768px){
+  .post-gallery{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

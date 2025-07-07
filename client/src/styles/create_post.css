@@ -1,0 +1,48 @@
+/* Entire page wrapper */
+.dashboard-layout {
+  min-height: 100vh;                  /* ✅ Full height of screen */
+  display: flex;
+  flex-direction: column;
+  overflow: auto;                     /* ✅ Allow scrolling if needed */
+}
+
+/* Sidebar + post area wrapper */
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: auto;                     /* ✅ Allow horizontal/vertical scroll */
+  flex-wrap: nowrap;
+}
+
+/* Sticky header */
+.dashboard-layout > .header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Post area */
+.post-create-area {
+  flex-grow: 1;
+  padding: 24px;
+  overflow-y: auto;                   /* ✅ Allow scrolling in post area */
+  min-width: 0;                       /* Fix for flexbox overflow */
+}
+
+.input-section {
+  font-family: "Montserrat";
+}
+
+/* -------------------------------------
+   ✅ Mobile & Tablet (responsive layout)
+-------------------------------------- */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;           /* Stack sidebar and post area */
+    overflow: visible;
+  }
+
+  .post-create-area {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,132 @@
+.profile-card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px; /* Increased from 40px to 60px */
+  flex-wrap: nowrap;
+  margin-bottom: 40px;
+  padding: 20px 0; /* Add top and bottom padding */
+}
+
+/* Left: Image wrapper */
+.profile-left {
+  flex-shrink: 0;
+  width: 130px; /* fixed width to contain image */
+  display: flex;
+  justify-content: center;
+}
+
+.profile-left img {
+  width: 120px; /* You can increase this too */
+  height: 120px;
+  border-radius: 50%;
+
+}
+
+.profile-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Increased gap between input boxes */
+  font-family: "Montserrat";
+}
+
+.input-box {
+  background-color: #e4fafd;
+  color: black;
+  padding: 10px 14px;
+  border-radius: 6px;
+  width: 240px; /* Slightly wider */
+  height: 27px;
+  font-size: 14px;
+  border: none;
+  resize: none;
+}
+
+.input-box-about {
+  background-color: #2d2b30;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  width: 240px; /* Slightly wider */
+  height: 80px;
+  font-size: 14px;
+  border: none;
+  resize: none;
+}
+
+
+.profile-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 240px;
+  align-items: flex-start;
+  padding-left: 250px;
+  font-family: "Inter";
+}
+
+.btn-class {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 240px;
+  align-items: flex-start;
+}
+
+.interact-btn {
+  background-color: #1f1f1f;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+.quote-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background-color: #fff;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.quote {
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.quote-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quote-user img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+
+@media screen and (max-width: 768px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-right {
+    align-items: center;
+  }
+
+  .interact-btn, .quote-card {
+    width: 80%;
+  }
+}

@@ -1,0 +1,116 @@
+.profile-picture-section {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-form {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px; /* ✅ Add side padding for small screens */
+}
+
+.form-columns {
+  display: flex;
+  gap: 200px;
+  flex-wrap: wrap;
+  font-family: "Inter";
+}
+
+.form-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fdfdfd;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  color: #2c2c2c;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #aaa;
+  outline: none;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.save-btn {
+  width: 100%;
+  max-width: 300px; /* ✅ Prevents it from being too wide on desktop */
+  padding: 12px 28px;
+  background-color: #93cdef;
+  border: none;
+  border-radius: 15px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: "Poppins";
+}
+
+.save-btn:hover {
+  background-color: hsl(207, 100%, 68%);
+}
+
+/* -------------------------------
+   ✅ Responsive Breakpoints
+-------------------------------- */
+
+/* Tablets and below */
+@media (max-width: 900px) {
+  .form-columns {
+    gap: 40px; /* reduce column gap */
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .form-columns {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-column {
+    min-width: 100%;
+  }
+
+  .profile-picture {
+    width: 120px;
+    height: 120px;
+  }
+
+  .save-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,198 @@
+/* Sidebar wrapper */
+.sidebar {
+  width: 320px;
+  background-color: rgb(37, 36, 36);
+  color: white;
+  position: sticky;
+  margin-top: 0 !important;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  z-index: 1000;
+}
+@media (min-width: 1025px) {
+  .sidebar {
+    min-width: 320px;
+  }
+}
+
+
+/* Profile Dropdown */
+.profile-dropdown {
+  background-color: #1e1e1e;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-info img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-texts {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.profile-texts .name {
+  font-weight: bold;
+}
+
+.profile-texts .email {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Dropdown menu */
+.dropdown-menu-custom {
+  position: absolute;
+  right: -220px;
+  top: 0;
+  width: 220px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 1000;
+  color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.dropdown-menu-custom .dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.dropdown-menu-custom .dropdown-header img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.dropdown-menu-custom .dropdown-item {
+  padding: 8px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ddd;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu-custom .dropdown-item:hover {
+  background-color: #333;
+}
+
+.sidebar-top,
+.sidebar-middle,
+.sidebar-bottom {
+  margin-bottom: 10px;
+}
+
+.sidebar .card {
+  margin-bottom: 0;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 240px;
+  }
+
+  .dropdown-menu-custom {
+    right: -200px;
+    width: 200px;
+  }
+
+  .profile-info img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dropdown-menu-custom .dropdown-header img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .profile-texts .name {
+    font-size: 0.95rem;
+  }
+
+  .profile-texts .email {
+    font-size: 0.75rem;
+  }
+}
+
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: inline-block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    margin: 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2000;
+  }
+
+  .sidebar {
+    position: fixed !important;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: 80%;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .close-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    text-align: right;
+    margin: 10px;
+    cursor: pointer;
+  }
+}
+
+/* Hide close button on large screens */
+.close-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .close-btn {
+    display: block;
+  }
+}
+
