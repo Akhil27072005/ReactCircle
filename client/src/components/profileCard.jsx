@@ -40,7 +40,7 @@ const ProfileCard = ({ user }) => {
   }, [id, isOwnProfile]);
 
 
-  const profileImageUrl = user.profilePic ? `http://localhost:5000/${user.profilePic}` : defaultprofile;
+  const profileImageUrl = user.profilePic ? `${user.profilePic}` : defaultprofile;
 
   return (
     <div className="profile-card">

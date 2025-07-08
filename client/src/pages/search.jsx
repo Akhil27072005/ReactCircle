@@ -32,7 +32,7 @@ const Search = () => {
               <img
                 src={
                   result.profilePic
-                    ? `http://localhost:5000/${result.profilePic}`
+                    ? `${result.profilePic}`
                     : DefaultProfile
                 }
                 alt="profile"
