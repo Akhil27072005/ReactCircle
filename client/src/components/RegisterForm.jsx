@@ -77,7 +77,7 @@ export function RegisterForm({className = "", ...props}){
             <button
                 type="button"
                 className="btn btn-outline-dark w-100 mb-3"
-                onClick={() => {window.location.href = "http://localhost:5000/api/auth/google";}}>
+                onClick={() => {window.location.href = "https://reactcircle.onrender.com/api/auth/google";}}>
                 <i className="bi bi-google me-2"></i>
                 <b>Sign Up with Google</b>
             </button>

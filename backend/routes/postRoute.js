@@ -27,8 +27,6 @@ router.post('/', authenticateToken, uploadPost.single('image'), async (req, res)
 
       imageURL = result.secure_url;
 
-      // 2. Delete local image
-      fs.unlinkSync(req.file.path);
     }
 
     const newPost = new Post({
@@ -74,7 +72,6 @@ router.put('/:id', authenticateToken, uploadPost.single("image"), async (req, re
         folder: "post_images",
       });
       post.imageURL = result.secure_url;
-      fs.unlinkSync(req.file.path); // Clean up local file
     }
 
     await post.save();

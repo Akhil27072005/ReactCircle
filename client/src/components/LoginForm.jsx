@@ -18,7 +18,7 @@ export function LoginForm({className = "", ...props}){
             localStorage.setItem("refreshToken", res.data.refreshToken);
             localStorage.setItem("user", JSON.stringify(res.data.user));
 
-            window.location.href = "/profile";
+            window.location.href = "https://reactcircle.vercel.app/profile";
         }
         catch(err){
             setError(err.response?.data?.message || "Login Failed! Please try again");
@@ -66,7 +66,7 @@ export function LoginForm({className = "", ...props}){
             <button
                 type="button"
                 className="btn btn-outline-dark w-100 mb-3"
-                onClick={() => {window.location.href = "http://localhost:5000/api/auth/google";}}>
+                onClick={() => {window.location.href = "https://reactcircle.onrender.com/api/auth/google";}}>
                 <i className="bi bi-google me-2"></i>
                 <b>Login with Google</b>
             </button>
