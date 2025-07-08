@@ -68,7 +68,7 @@ const LikesModal = ({ id }) => {
                   <li key={index} className="mb-3 d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
                       <img
-                        src={like?.profilePic ? `http://localhost:5000/${like.profilePic}` : DefaultProfile}
+                        src={like?.profilePic ? `${like.profilePic}` : DefaultProfile}
                         alt="profile"
                         className="me-2"
                         style={{

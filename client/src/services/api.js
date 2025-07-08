@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://reactcircle.onrender.com/api';
 
 const getAccessToken = () => localStorage.getItem('accessToken');
 const getRefreshToken = () => localStorage.getItem('refreshToken');

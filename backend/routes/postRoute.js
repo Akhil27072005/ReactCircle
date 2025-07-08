@@ -6,67 +6,82 @@ const authenticateToken = require('../middleware/authMiddleware');
 const user = require('../models/user');
 const {uploadPost} = require('../middleware/upload');
 const path = require('path');
+const {cloudinary} = require("../middleware/cloudinary"); // make sure this path is correct
+const fs = require("fs");
 
-router.post('/', authenticateToken, uploadPost.single('image'), async(req,res) => {                     //Create new Post
-    try{
-        const {title, caption, description} = req.body;
-        const imageURL = req.file ? `uploads/post/${req.file.filename}` : '';
+router.post('/', authenticateToken, uploadPost.single('image'), async (req, res) => {
+  try {
+    const { title, caption, description } = req.body;
 
-        if(!title){
-            return res.status(400).json({message:"Title and Caption are required"});
-        }
-
-        const newPost = new Post({
-            title,
-            caption,
-            description,
-            imageURL,
-            author: req.user.userId
-        });
-
-        await newPost.save();
-
-        return res.status(201).json({message: "Post created succesfully"});
+    if (!title) {
+      return res.status(400).json({ message: "Title and Caption are required" });
     }
-    catch(err){
-        console.error("Error Creating Post", err);
-        console.log(err);
-        res.status(500).json({message: "Server Error"});
+
+    let imageURL = "";
+
+    if (req.file) {
+      // 1. Upload to Cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: "post_images",
+      });
+
+      imageURL = result.secure_url;
+
     }
+
+    const newPost = new Post({
+      title,
+      caption,
+      description,
+      imageURL,
+      author: req.user.userId
+    });
+
+    await newPost.save();
+
+    return res.status(201).json({ message: "Post created successfully", post: newPost });
+  } catch (err) {
+    console.error("Error Creating Post", err);
+    res.status(500).json({ message: "Server Error" });
+  }
 });
 
 
-router.put('/:id', authenticateToken, uploadPost.single("image"), async(req,res) => {                   //Edit Post
-    try{
-        const {id} = req.params;
-        const {title, caption, description, imageURL} = req.body;
+router.put('/:id', authenticateToken, uploadPost.single("image"), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, caption, description } = req.body;
 
-        const post = await Post.findById(id);
-
-        if(!post){
-            return res.status(404).json({message: "Post not found"});
-        }
-
-        if(post.author.toString() !== req.user.userId){
-            return res.status(403).json({message: "You can only edit your own posts"});
-        }
-
-        if(title) post.title = title;
-        if(caption) post.caption = caption;
-        if(description) post.description = description;
-        if(imageURL) post.imageURL = imageURL;
-
-        if (req.file) {
-            post.imageURL = `uploads/post/${req.file.filename}`; // update the image
-        }
-
-        await post.save();   
-        res.status(200).json({message: "Post updated", post});
+    const post = await Post.findById(id);
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
     }
-    catch(err){
-        console.error("Error updating post: ",err);
-        res.status(500).json({message: "Server Error"});
+
+    if (post.author.toString() !== req.user.userId) {
+      return res.status(403).json({ message: "You can only edit your own posts" });
     }
+
+    // Update text fields
+    if (title) post.title = title;
+    if (caption) post.caption = caption;
+    if (description) post.description = description;
+
+    // Upload new image (if given)
+    if (req.file) {
+      const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: "post_images",
+      });
+      post.imageURL = result.secure_url;
+      
+    }
+
+    await post.save();
+    res.status(200).json({ message: "Post updated", post });
+
+  } catch (err) {
+    console.error("Error updating post: ", err);
+    res.status(500).json({ message: "Server Error" });
+  }
 });
 
 

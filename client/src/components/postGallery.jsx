@@ -12,7 +12,7 @@ const PostGallery = ({ posts }) => {
     <div className="post-gallery">
       {posts.map((post) => (
         <div className="post-card" key={post.id}>
-          <PostContainer imageURL={`http://localhost:5000/${post.imageURL}`} title={post.title} postId={post._id}/>
+          <PostContainer imageURL={`${post.imageURL}`} title={post.title} postId={post._id}/>
         </div>
       ))}
     </div>

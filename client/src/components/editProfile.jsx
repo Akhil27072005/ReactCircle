@@ -55,7 +55,7 @@ const EditProfile = () => {
         });
 
         if (data.profilePic) {
-          setPreviewImage(`http://localhost:5000/${data.profilePic}`);
+          setPreviewImage(`${data.profilePic}`);
         }
       } catch (err) {
         console.error("Failed to load profile", err);

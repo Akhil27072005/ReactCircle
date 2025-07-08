@@ -23,7 +23,7 @@ const UserProfileDropdown = ({ user }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-  const profilePicture = user?.profilePic ? `http://localhost:5000/${user.profilePic}` : defaultProfile;
+  const profilePicture = user?.profilePic ? `${user.profilePic}` : defaultProfile;
   return (
     <div className="profile-container" ref={dropdownRef}>
       <div className="profile-header" onClick={toggleDropdown}>

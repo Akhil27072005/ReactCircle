@@ -111,7 +111,7 @@ const CommentsModal = ({id}) => {
                   <li key={index} className="mb-3 d-flex align-items-start justify-content-between">
                     <div className="d-flex">
                       <img
-                        src={comment.user?.profilePic ? `http://localhost:5000/${comment.user.profilePic}` : DefaultProfile}
+                        src={comment.user?.profilePic ? `${comment.user.profilePic}` : DefaultProfile}
                         alt="profile"
                         className="me-2"
                         style={{

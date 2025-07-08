@@ -41,7 +41,7 @@
         }
 
         if (req.file) {
-        updateFields.profilePic = `uploads/profile/${req.file.filename}`;
+        updateFields.profilePic = req.file.path;
         }
 
         const user = await User.findById(userId);
@@ -69,7 +69,7 @@
                 return res.status(404).json({message:"User not found"});
             }
 
-            user.profilePic = `uploads/profile/${req.file.filename}`;
+            user.profilePic = req.file.path;
             await user.save();
 
             res.status(200).json({message:"Profile picture updated",profilePic:user.profilePic});

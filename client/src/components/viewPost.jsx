@@ -56,7 +56,7 @@ const ViewPost = () => {
         <div className="single-post-page">
             <div className="post-content-wrapper">
                 <div className="post-left">
-                <img src={post?.imageURL ? `http://localhost:5000/${post.imageURL}` : ImagePlaceholder} alt="Post" className="post-image"  onError={(e) => { e.target.onerror = null; e.target.src = ImagePlaceholder;}}/>
+                <img src={post?.imageURL ? `${post.imageURL}` : ImagePlaceholder} alt="Post" className="post-image"  onError={(e) => { e.target.onerror = null; e.target.src = ImagePlaceholder;}}/>
                 <div className="reaction-bar">
                     <span className="icon">
                         <FontAwesomeIcon icon={faHeart} style={{color:"red", cursor:"pointer"}} onClick={handleLikeToggle}/>
@@ -73,7 +73,7 @@ const ViewPost = () => {
 
                 <div className="post-right">
                 <div className="post-author">
-                    <img src= {post?.author?.profilePic ? `http://localhost:5000/${post.author.profilePic}` : defaultProfile} alt="default"/>
+                    <img src= {post?.author?.profilePic ? `${post.author.profilePic}` : defaultProfile} alt="default"/>
                     <span className="username" style={{cursor:"pointer"}} onClick={() => navigate(`/profile/${post?.author?._id}`)}>{post?.author?.profile_name || "Unknown User"}</span>
                     
                 </div>
