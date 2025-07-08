@@ -1,5 +1,5 @@
 const multer = require('multer');
-const { postStorage, profileStorage } = require('../utils/cloudinary');
+const { postStorage, profileStorage } = require('../middleware/cloudinary');
 
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png|gif/;
