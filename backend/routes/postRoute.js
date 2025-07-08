@@ -39,7 +39,8 @@ router.post('/', authenticateToken, uploadPost.single('image'), async(req,res) =
 router.put('/:id', authenticateToken, uploadPost.single("image"), async(req,res) => {                   //Edit Post
     try{
         const {id} = req.params;
-        const {title, caption, description, imageURL} = req.body;
+        const {title, caption, description} = req.body;
+        const imageURL = req.file.path;
 
         const post = await Post.findById(id);
 
