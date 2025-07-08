@@ -27,8 +27,6 @@ router.post('/', authenticateToken, uploadPost.single('image'), async (req, res)
 
       imageURL = result.secure_url;
 
-      // 2. Delete local image
-      fs.unlinkSync(req.file.path);
     }
 
     const newPost = new Post({
