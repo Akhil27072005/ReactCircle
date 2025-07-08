@@ -10,7 +10,7 @@ const path = require('path');
 router.post('/', authenticateToken, uploadPost.single('image'), async(req,res) => {                     //Create new Post
     try{
         const {title, caption, description} = req.body;
-        const imageURL = req.file ? `uploads/post/${req.file.filename}` : '';
+        const imageURL = req.file.path;
 
         if(!title){
             return res.status(400).json({message:"Title and Caption are required"});
