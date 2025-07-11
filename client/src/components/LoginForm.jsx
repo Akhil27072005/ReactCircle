@@ -18,7 +18,7 @@ export function LoginForm({className = "", ...props}){
             localStorage.setItem("refreshToken", res.data.refreshToken);
             localStorage.setItem("user", JSON.stringify(res.data.user));
 
-            window.location.href = "https://reactcircle.vercel.app/profile";
+            window.location.href = "/profile";
         }
         catch(err){
             setError(err.response?.data?.message || "Login Failed! Please try again");

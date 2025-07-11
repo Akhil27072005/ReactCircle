@@ -99,7 +99,7 @@ router.get(
       );
     } catch (err) {
       console.log("Google Auth Callback Error:", err);
-      return res.redirect("https://reactcircle.vercel.app/login");
+      return res.redirect("/login");
     }
   }
 );
