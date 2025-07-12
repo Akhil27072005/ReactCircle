@@ -37,7 +37,7 @@ export function EditPostForm() {
         setCaption(post.caption || "");
         setDescription(post.description || "");
         if (post.imageURL) {
-          setPreviewImage(`http://localhost:5000/${post.imageURL}`);
+          setPreviewImage(`${post.imageURL}`);
         }
       } catch (err) {
         console.error("Failed to fetch post:", err);

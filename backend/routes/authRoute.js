@@ -75,7 +75,7 @@ router.get("/google", passport.authenticate("google", { scope: ["profile", "emai
 
 router.get(
   "/google/callback",
-  passport.authenticate("google", { session: false, failureRedirect: "http://localhost:3000/login" }),
+  passport.authenticate("google", { session: false, failureRedirect: "https://reactcircle.vercel.app/login" }),
   async (req, res) => {
     try {
       const user = req.user;
@@ -95,11 +95,11 @@ router.get(
 
       // 🔁 Redirect to frontend with tokens (e.g., via query string)
       return res.redirect(
-        `http://localhost:3000/oauth-success/${accessToken}/${refreshToken}`
+        `https://reactcircle.vercel.app/oauth-success/${accessToken}/${refreshToken}`
       );
     } catch (err) {
       console.log("Google Auth Callback Error:", err);
-      return res.redirect("http://localhost:3000/login");
+      return res.redirect("/login");
     }
   }
 );

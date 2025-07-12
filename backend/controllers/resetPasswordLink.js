@@ -16,7 +16,7 @@ const sendResetLink = async (req, res) => {
     });
 
     // Link to send
-    const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+    const resetLink = `https://reactcircle.vercel.app/reset-password/${resetToken}`;
 
     // Send Email
     const transporter = nodemailer.createTransport({
