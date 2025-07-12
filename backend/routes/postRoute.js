@@ -72,6 +72,7 @@ router.put('/:id', authenticateToken, uploadPost.single("image"), async (req, re
         folder: "post_images",
       });
       post.imageURL = result.secure_url;
+
     }
 
     await post.save();
